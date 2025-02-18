@@ -1,0 +1,26 @@
+.searchContainer {
+  position: relative;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #1f2937;
+  color: #e5e7eb;
+  margin-bottom: 20px;
+  padding: 8px 18px;
+  width: 80%;
+
+  .searchInput {
+    padding: 8px 12px;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 10px;
+    max-width: 350px;
+    width: 100%;
+    color: #e5e7eb;
+
+    &:focus,
+    &:focus-visible {
+      outline: solid 1px #10b981;
+    }
+  }
+}
