@@ -1,18 +1,33 @@
 @use "sass:color";
+@use "../../utils.scss" as *;
+
+.mainPage {
+  display: flex;
+  align-items: center;
+  color: $light-text-color;
+  gap: 10px;
+}
+
+.house {
+  @include icon($primary-color) {
+    @extend .fa-house;
+    font-size: 2rem;
+  }
+}
 
 .tableContainer {
   position: relative;
   overflow-x: auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: $basic-shadow;
   border-radius: 6px;
-  background-color: #1f2937;
-  color: #e5e7eb;
+  background-color: $basic-background;
+  color: $light-text-color;
   width: 100%;
 
   .table {
     width: 100%;
     text-align: left;
-    color: #e5e7eb;
+    color: $light-text-color;
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 10px;
@@ -21,21 +36,36 @@
   th,
   td {
     padding: 16px;
-    border-bottom: 1px solid #374151;
+    border-bottom: 1px solid $basic-border-color;
+
+    .owner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      overflow: hidden;
+      max-width: 40px;
+      display: block;
+      width: fit-content;
+    }
   }
 
   thead {
-    background-color: #111827;
+    background-color: $darken-background-color;
     text-transform: uppercase;
     font-size: 12px;
-    color: #bec6d4;
+    color: $neutral-text-color;
   }
 }
 
 tbody tr {
-  background-color: #1f2937;
+  background-color: $basic-background;
   &:nth-child(even) {
-    background-color: #2f3640;
+    background-color: $lighten-background-color;
   }
 
   &:last-child td {
@@ -44,10 +74,10 @@ tbody tr {
 }
 
 .tableButton {
-  background-color: #10b981;
-  color: white;
+  background-color: $success-color;
+  color: $light-text-color;
   font-weight: 500;
   &:hover {
-    background-color: color.scale(#10b981, $lightness: -20%);
+    background-color: color.scale($success-color, $lightness: -20%);
   }
 }

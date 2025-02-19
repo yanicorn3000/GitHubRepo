@@ -1,26 +1,59 @@
+@use "../../utils.scss" as *;
 .searchContainer {
   position: relative;
   overflow-x: auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: $basic-shadow;
   border-radius: 10px;
-  background-color: #1f2937;
-  color: #e5e7eb;
+  background-color: $basic-background;
+  color: $light-text-color;
   margin-bottom: 20px;
-  padding: 8px 18px;
-  width: 80%;
+  padding: 10px 18px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  &:focus-within .searchIcon {
+    color: $success-color;
+  }
+
+  .searchInputWrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    align-items: center;
+  }
 
   .searchInput {
-    padding: 8px 12px;
-    background-color: #1f2937;
-    border: 1px solid #374151;
+    padding: 10px 40px 10px 12px;
+    background-color: $basic-background;
+    border: 1px solid $basic-border-color;
     border-radius: 10px;
-    max-width: 350px;
     width: 100%;
-    color: #e5e7eb;
+    color: $light-text-color;
 
     &:focus,
     &:focus-visible {
-      outline: solid 1px #10b981;
+      outline: solid 1px $success-color;
     }
+  }
+
+  .searchIcon {
+    @include icon($basic-border-color) {
+      @extend .fa-magnifying-glass;
+      font-size: 1.2rem;
+    }
+
+    position: absolute;
+    right: 1rem;
+
+    cursor: pointer;
+  }
+
+  .pageCount {
+    font-size: 0.8rem;
   }
 }

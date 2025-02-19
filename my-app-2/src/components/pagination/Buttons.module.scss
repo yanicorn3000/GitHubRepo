@@ -1,0 +1,40 @@
+@use "../../utils.scss" as *;
+@use "sass:color";
+
+.buttonsContainer {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+
+  .button {
+    color: #e5e7eb;
+    padding: 8px 12px;
+    background-color: $primary-color;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &:hover {
+      background-color: color.scale($primary-color, $lightness: -10%);
+    }
+  }
+
+  .chevronRight {
+    @include icon($light-text-color) {
+      @extend .fa-chevron-right;
+      font-size: 0.8rem;
+      margin-bottom: -2px;
+    }
+  }
+
+  .chevronLeft {
+    @include icon($light-text-color) {
+      @extend .fa-chevron-left;
+      font-size: 0.8rem;
+      margin-bottom: -2px;
+    }
+  }
+}

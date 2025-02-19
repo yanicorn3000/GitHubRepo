@@ -1,0 +1,44 @@
+$fa-font-path: "@fortawesome/fontawesome-free/webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+
+@mixin icon($color, $type: solid) {
+  @if $type == solid {
+    @extend .fa-solid;
+  }
+
+  @if $type == regular {
+    @extend .fa-regular;
+  }
+
+  @if $type == brands {
+    @extend .fa-brands;
+  }
+
+  color: $color;
+  @content;
+}
+
+$breakpoints: (
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  extra-large: 1200px,
+);
+
+//COLORS
+
+$primary-color: #945bf8;
+$success-color: #10b981;
+$basic-background: #1f2937;
+$basic-border-color: #374151;
+$darken-background-color: #111827;
+$lighten-background-color: #2f3640;
+$light-text-color: #e5e7eb;
+$neutral-text-color: #bec6d4;
+
+//SHADOWS
+
+$basic-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
