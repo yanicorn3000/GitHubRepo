@@ -2,23 +2,31 @@
 @use "sass:color";
 
 .buttonsContainer {
-  margin-top: 20px;
-  width: 100%;
+  margin: 25px;
   display: flex;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
 
   .button {
-    color: #e5e7eb;
-    padding: 8px 12px;
+    color: $light-text-color;
+    padding: 8px 10px;
     background-color: $primary-color;
-    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 8px;
 
     &:hover {
       background-color: color.scale($primary-color, $lightness: -10%);
+    }
+
+    &:disabled {
+      background-color: $lighten-background-color;
+      cursor: not-allowed;
+      opacity: 0.5;
     }
   }
 

@@ -1,0 +1,13 @@
+@use "../../../utils.scss" as *;
+
+.notFoundcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $light-text-color;
+
+  a {
+    color: $success-color;
+  }
+}

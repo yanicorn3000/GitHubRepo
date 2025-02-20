@@ -30,7 +30,7 @@
     color: $light-text-color;
     border-collapse: collapse;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
   }
 
   th,
@@ -60,16 +60,16 @@
     font-size: 12px;
     color: $neutral-text-color;
   }
+
+  th {
+    cursor: pointer;
+  }
 }
 
 tbody tr {
   background-color: $basic-background;
   &:nth-child(even) {
     background-color: $lighten-background-color;
-  }
-
-  &:last-child td {
-    border-bottom: none;
   }
 }
 

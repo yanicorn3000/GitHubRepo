@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./Search.module.scss";
-export const Search = ({ query, setQuery, totalPages, page }) => {
+export const Search = ({ query, setQuery }) => {
   const [inputValue, setInputValue] = useState(query);
 
   useEffect(() => {
@@ -21,11 +21,6 @@ export const Search = ({ query, setQuery, totalPages, page }) => {
           className={styles.searchInput}
         />
         <span className={styles.searchIcon}></span>
-      </div>
-      <div>
-        <span className={styles.pageCount}>
-          Strona {page} z {totalPages}
-        </span>
       </div>
     </div>
   );

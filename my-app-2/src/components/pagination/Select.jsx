@@ -1,19 +1,20 @@
+import styles from "./Select.module.scss";
 export const Select = ({ limit, setLimit, setPage }) => {
   return (
     <>
-      <div>
-        <label>Wyników na stronę:</label>
+      <div className={styles.selectContainer}>
+        <label>Wyników na stronie:</label>
         <select
           value={limit}
           onChange={(e) => {
             setLimit(Number(e.target.value));
-            setPage(1); // Reset do pierwszej strony po zmianie limitu
+            setPage(1);
           }}
         >
           <option value={5}>5</option>
           <option value={10}>10</option>
-          <option value={20}>20</option>
-          <option value={50}>50</option>
+          <option value={15}>15</option>
+          <option value={30}>30</option>
         </select>
       </div>
     </>

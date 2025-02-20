@@ -82,8 +82,7 @@ _Widok szczegółowy repozytorium_
 #### 404 - Nie znaleziono
 
 > Ścieżka **/404** (przekierowanie dla wszystkich nieprawidłowych adresów)
-> ![not found](images/nie_znaleziono_404.png)
-> \*Widok strony **404 (Nie znaleziono)\***
+> ![not found](images/nie_znaleziono_404.png) > \*Widok strony **404 (Nie znaleziono)\***
 
 ---
 
@@ -95,21 +94,21 @@ _Widok szczegółowy repozytorium_
 
 ### Zadania obowiązkowe
 
-- [ ] Aplikacja oparta o `React`, wykorzystująca bibliotekę `React Router` oraz stylowanie oparte o `SASS`.
-- [ ] Struktura routingu, umożliwia użytkownikowi swobodne przechodzenie pomiędzy widokami:
+- [x] Aplikacja oparta o `React`, wykorzystująca bibliotekę `React Router` oraz stylowanie oparte o `SASS`.
+- [x] Struktura routingu, umożliwia użytkownikowi swobodne przechodzenie pomiędzy widokami:
   - Nawigacja, zawierająca linki umożliwiające poruszanie się po aplikacji (dostępna w całej aplikacji),
   - Strona główna (`/`),
   - Ulubione (`/favourites`),
   - Widok szczegółowy (`/favourites/:id`),
   - Nie znaleziono (`/404`) (przekierowanie pod **/404** dla wszystkich nieprawidłowych adresów).
-- [ ] Aplikacja renderuje elementy pozwalające na wyszukiwanie repozytoriów na podstawie wprowadzonej nazwy.
+- [x] Aplikacja renderuje elementy pozwalające na wyszukiwanie repozytoriów na podstawie wprowadzonej nazwy.
 - [ ] Aplikacja cache-uje ostatnie wyszukiwania (na bazie Twojej **prostej** implementacji) - celem jest uniknięcie wykonywania zapytań do API jeżeli wyszukiwanie takie było wykonywane w ramach poprzednich wyszukiwań.
 
   > Cache powinien być bardzo uproszczony i działać _per sesja_ (odświeżenie aplikacji zeruje state związany z cache-m).
 
-- [ ] Aplikacja renderuje tabelę zawierającą dane, zgodnie ze wskazaną strukturą.
+- [x] Aplikacja renderuje tabelę zawierającą dane, zgodnie ze wskazaną strukturą.
 - [ ] Renderowana tabela umożliwia sortowanie kolumn (rosnąco / malejąco).
-- [ ] Implementacja paginacji (**lokalnie**, nie za pomocą zapytań do API):
+- [x] Implementacja paginacji (**lokalnie**, nie za pomocą zapytań do API):
   - Kontrola ilośći wyświetlanych wierszy (5, 10 - **domyślnie**, 15, 30).
 - [ ] Zapis ulubionych repozytoriów do `localStorage`.
 - [ ] Aplikacja renderuje listę repozytoriów dodanych do ulubionych (dane pobierane z `localStorage`).

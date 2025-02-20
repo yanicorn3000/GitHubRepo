@@ -10,6 +10,8 @@ export const Table = () => {
   const { data, isLoading, error } = useRepos(query);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(5);
+  const [sortedColumn, setSortedColumn] = useState(null);
+  const [sortDirection, setSortDirection] = useState("asc");
 
   const currentData = useMemo(() => {
     if (!data) {
@@ -21,6 +23,35 @@ export const Table = () => {
   }, [page, limit, data]);
 
   const totalPages = data ? Math.ceil(data.items.length / limit) : 0;
+
+  const sortedData = [...currentData].sort((a, b) => {
+    if (!sortedColumn) return 0;
+
+    let valueA = a[sortedColumn];
+    let valueB = b[sortedColumn];
+
+    if (sortedColumn === "owner.login") {
+      valueA = a.owner.login;
+      valueB = b.owner.login;
+    }
+
+    if (typeof valueA === "string") {
+      return sortDirection === "asc"
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
+    } else {
+      return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
+    }
+  });
+
+  const handleSort = (column) => {
+    if (sortedColumn === column) {
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      setSortedColumn(column);
+      setSortDirection("asc");
+    }
+  };
 
   return (
     <>
@@ -40,47 +71,53 @@ export const Table = () => {
         {isLoading && <p>Łoading...</p>}
         {error && <p>Error: {error.message}</p>}
 
-        {currentData?.length > 0 ? (
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nazwa repozytorium</th>
-                <th>Właściciel</th>
-                <th> Ilość gwiazdek</th>
-                <th> Data utworzenia</th>
-                <th> Ulubione </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentData.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>
-                    <div className={styles.owner}>
-                      <img
-                        className={styles.avatar}
-                        src={item.owner.avatar_url}
-                      />
-                      {item.owner.login}
-                    </div>
-                  </td>
-                  <td>{item.stargazers_count}</td>
-                  <td>{new Date(item.created_at).toLocaleDateString()}</td>
-                  <td>
-                    <button className={styles.tableButton}>Dodaj</button>
-                  </td>
+        {sortedData?.length > 0 ? (
+          <>
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  <th onClick={() => handleSort("id")}>ID</th>
+                  <th onClick={() => handleSort("name")}>Nazwa repozytorium</th>
+                  <th onClick={() => handleSort("owner.login")}>Właściciel</th>
+                  <th onClick={() => handleSort("stargazers_count")}>
+                    Ilość gwiazdek
+                  </th>
+                  <th onClick={() => handleSort("created_at")}>
+                    Data utworzenia
+                  </th>
+                  <th> Ulubione </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {sortedData.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.name}</td>
+                    <td>
+                      <div className={styles.owner}>
+                        <img
+                          className={styles.avatar}
+                          src={item.owner.avatar_url}
+                        />
+                        {item.owner.login}
+                      </div>
+                    </td>
+                    <td>{item.stargazers_count}</td>
+                    <td>{new Date(item.created_at).toLocaleDateString()}</td>
+                    <td>
+                      <button className={styles.tableButton}>Dodaj</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <Select setLimit={setLimit} limit={limit} setPage={setPage} />
+            <Buttons page={page} setPage={setPage} totalPages={totalPages} />
+          </>
         ) : (
           !isLoading && null
         )}
       </div>
-      <Select setLimit={setLimit} limit={limit} setPage={setPage} />
-      <Buttons />
     </>
   );
 };
