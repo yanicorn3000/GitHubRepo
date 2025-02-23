@@ -1,0 +1,55 @@
+@use "sass:color";
+@use "../../../utils.scss" as *;
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid $basic-border-color;
+  border-radius: 20px;
+  box-shadow: $basic-shadow;
+  padding: 20px;
+  max-width: 300px;
+
+  .details {
+    color: $neutral-text-color;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .info {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  .remove {
+    background-color: $warning-color;
+    color: $light-text-color;
+    font-size: 0.9rem;
+    text-wrap: nowrap;
+    align-self: flex-end;
+
+    &:hover {
+      background-color: color.scale($warning-color, $lightness: -20%);
+    }
+  }
+}
+
+.folder {
+  @include icon($primary-color) {
+    @extend .fa-folder;
+    font-size: 1.2rem;
+  }
+}
+
+.xmark {
+  @include icon($light-text-color) {
+    @extend .fa-xmark;
+    font-size: 0.8rem;
+    margin-left: 5px;
+    margin-bottom: -1px;
+  }
+}

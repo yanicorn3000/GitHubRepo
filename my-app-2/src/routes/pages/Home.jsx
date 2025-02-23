@@ -1,9 +1,15 @@
-import { Table } from "../../components/table/Table";
+import { ReposList } from "../../components/table/ReposList";
+import styles from "./Home.module.scss";
 const Home = () => {
   return (
-    <>
-      <Table />
-    </>
+    <div className={styles.mainPage}>
+      <div className={styles.title}>
+        <span className={styles.house}></span>
+        <h2>Strona Główna</h2>
+      </div>
+
+      <ReposList />
+    </div>
   );
 };
 

@@ -1,0 +1,82 @@
+@use "../../../utils.scss" as *;
+@use "sass:color";
+
+.repoContainer {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid $basic-border-color;
+  border-radius: 20px;
+  box-shadow: $basic-shadow;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .userInfo {
+    display: flex;
+    gap: 10px;
+
+    .avatar {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 20px;
+      display: block;
+      object-fit: cover;
+      height: 20px;
+      margin: 0;
+    }
+
+    .userName {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: $neutral-text-color;
+    }
+  }
+
+  .widgetsContainer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  .widget {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    a {
+      &:hover {
+        color: color.scale($secondary-color, $lightness: -20%);
+      }
+    }
+  }
+  .link {
+    @include icon($primary-color) {
+      @extend .fa-link;
+      font-size: 1rem;
+    }
+  }
+
+  .star {
+    @include icon($primary-color) {
+      @extend .fa-star;
+      font-size: 1rem;
+    }
+  }
+
+  .date {
+    @include icon($primary-color) {
+      @extend .fa-calendar-days;
+      font-size: 1rem;
+    }
+  }
+}

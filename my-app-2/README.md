@@ -107,11 +107,11 @@ _Widok szczegółowy repozytorium_
   > Cache powinien być bardzo uproszczony i działać _per sesja_ (odświeżenie aplikacji zeruje state związany z cache-m).
 
 - [x] Aplikacja renderuje tabelę zawierającą dane, zgodnie ze wskazaną strukturą.
-- [ ] Renderowana tabela umożliwia sortowanie kolumn (rosnąco / malejąco).
+- [x] Renderowana tabela umożliwia sortowanie kolumn (rosnąco / malejąco).
 - [x] Implementacja paginacji (**lokalnie**, nie za pomocą zapytań do API):
   - Kontrola ilośći wyświetlanych wierszy (5, 10 - **domyślnie**, 15, 30).
-- [ ] Zapis ulubionych repozytoriów do `localStorage`.
-- [ ] Aplikacja renderuje listę repozytoriów dodanych do ulubionych (dane pobierane z `localStorage`).
+- [x] Zapis ulubionych repozytoriów do `localStorage`.
+- [x] Aplikacja renderuje listę repozytoriów dodanych do ulubionych (dane pobierane z `localStorage`).
 - [ ] Aplikacja renderuje widok szczegółowy dla ulubionych repozytoriów (dane pobierane z `localStorage`).
 
 ## Uwagi końcowe

@@ -1,20 +1,6 @@
 @use "sass:color";
 @use "../../utils.scss" as *;
 
-.mainPage {
-  display: flex;
-  align-items: center;
-  color: $light-text-color;
-  gap: 10px;
-}
-
-.house {
-  @include icon($primary-color) {
-    @extend .fa-house;
-    font-size: 2rem;
-  }
-}
-
 .tableContainer {
   position: relative;
   overflow-x: auto;
@@ -48,9 +34,11 @@
     .avatar {
       border-radius: 50%;
       overflow: hidden;
-      max-width: 40px;
+      width: 40px;
+      height: 40px;
       display: block;
-      width: fit-content;
+      object-fit: cover;
+      margin: 0;
     }
   }
 
@@ -70,14 +58,5 @@ tbody tr {
   background-color: $basic-background;
   &:nth-child(even) {
     background-color: $lighten-background-color;
-  }
-}
-
-.tableButton {
-  background-color: $success-color;
-  color: $light-text-color;
-  font-weight: 500;
-  &:hover {
-    background-color: color.scale($success-color, $lightness: -20%);
   }
 }
