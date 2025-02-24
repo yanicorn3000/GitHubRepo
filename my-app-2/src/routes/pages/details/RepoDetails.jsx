@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useRepoById } from "../../../api/repo";
 import styles from "./RepoDetails.module.scss";
+import Spinner from "../../../components/spinner/Spinner";
 export const RepoDetails = () => {
   const { repoId } = useParams();
   const { data, isLoading, error } = useRepoById(repoId);
 
-  if (isLoading) return <p>Ładowanie...</p>;
+  if (isLoading) return <Spinner />;
   if (error) return <p>Błąd: {error.message}</p>;
 
   return (

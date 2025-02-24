@@ -1,4 +1,4 @@
-import { ReposList } from "../../components/table/ReposList";
+import { ReposList } from "./repoList/ReposList";
 import styles from "./Home.module.scss";
 const Home = () => {
   return (

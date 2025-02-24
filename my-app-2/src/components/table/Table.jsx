@@ -2,22 +2,33 @@ import styles from "./Table.module.scss";
 import { Link } from "react-router-dom";
 import FavButton from "./FavButton.jsx";
 
+const columns = [
+  { key: "id", label: "ID" },
+  { key: "name", label: "Nazwa repozytorium" },
+  { key: "owner.login", label: "Właściciel" },
+  { key: "stargazers_count", label: "Ilość gwiazdek" },
+  { key: "created_at", label: "Data utworzenia" },
+];
+
 export const Table = ({
   handleSort,
   sortedData,
   favouriteIds,
   addToFavourites,
+  sortDirection,
+  sortedColumn,
 }) => {
   return (
     <table className={styles.table}>
       <thead>
         <tr>
-          <th onClick={() => handleSort("id")}>ID</th>
-          <th onClick={() => handleSort("name")}>Nazwa repozytorium</th>
-          <th onClick={() => handleSort("owner.login")}>Właściciel</th>
-          <th onClick={() => handleSort("stargazers_count")}>Ilość gwiazdek</th>
-          <th onClick={() => handleSort("created_at")}>Data utworzenia</th>
-          <th> Ulubione </th>
+          {columns.map(({ key, label }) => (
+            <th key={key} onClick={() => handleSort(key)}>
+              {label}
+              {sortedColumn === key && (sortDirection === "asc" ? " ▲" : " ▼")}
+            </th>
+          ))}
+          <th>Ulubione</th>
         </tr>
       </thead>
       <tbody>

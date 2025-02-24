@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useRepoById } from "../../../api/repo";
 import styles from "./FavouriteItem.module.scss";
+import Spinner from "../../../components/spinner/Spinner";
 
 const FavouriteItem = ({ repoId, removeFromFavourites }) => {
   const { data, isLoading, error } = useRepoById(repoId);
 
-  if (isLoading) return <p>Ładowanie repozytorium {repoId}...</p>;
+  if (isLoading) return <Spinner />;
   if (error) return <p>Błąd: {error.message}</p>;
   if (!data) return <p>Brak danych dla repozytorium {repoId}.</p>;
 

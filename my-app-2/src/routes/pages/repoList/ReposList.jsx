@@ -1,11 +1,12 @@
-import styles from "./Table.module.scss";
-import { useRepos } from "../../api/repo";
+import styles from "./ReposList.module.scss";
+import { useRepos } from "../../../api/repo";
 import { useState, useMemo } from "react";
-import { Search } from "../search/Search";
-import { Buttons } from "../pagination/Buttons";
-import { Select } from "../pagination/Select";
-import { useFavourites } from "../../localStorage/favourites";
-import { Table } from "./Table";
+import { Search } from "../../../components/search/Search";
+import { Buttons } from "../../../components/pagination/Buttons";
+import { Select } from "../../../components/pagination/Select";
+import { useFavourites } from "../../../localStorage/favourites";
+import { Table } from "../../../components/table/Table";
+import Spinner from "../../../components/spinner/Spinner";
 
 export const ReposList = () => {
   const [query, setQuery] = useState("");
@@ -65,10 +66,10 @@ export const ReposList = () => {
         page={page}
       />
 
-      <div className={styles.tableContainer}>
-        {isLoading && <p>Łoading...</p>}
-        {error && <p>Error: {error.message}</p>}
+      {isLoading && <Spinner />}
+      {error && <p>Error: {error.message}</p>}
 
+      <div className={styles.tableContainer}>
         {sortedData?.length > 0 ? (
           <>
             <Table
@@ -76,6 +77,8 @@ export const ReposList = () => {
               sortedData={sortedData}
               favouriteIds={favouriteIds}
               addToFavourites={addToFavourites}
+              sortDirection={sortDirection}
+              sortedColumn={sortedColumn}
             />
             <Select setLimit={setLimit} limit={limit} setPage={setPage} />
             <Buttons page={page} setPage={setPage} totalPages={totalPages} />

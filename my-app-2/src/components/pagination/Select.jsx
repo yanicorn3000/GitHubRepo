@@ -1,4 +1,5 @@
 import styles from "./Select.module.scss";
+
 export const Select = ({ limit, setLimit, setPage }) => {
   return (
     <>

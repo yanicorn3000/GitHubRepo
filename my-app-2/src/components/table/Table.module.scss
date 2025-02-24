@@ -1,57 +1,46 @@
-@use "sass:color";
 @use "../../utils.scss" as *;
 
-.tableContainer {
-  position: relative;
-  overflow-x: auto;
-  box-shadow: $basic-shadow;
-  border-radius: 6px;
-  background-color: $basic-background;
-  color: $light-text-color;
+.table {
   width: 100%;
+  text-align: left;
+  color: $light-text-color;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px 10px 0px 0px;
+}
 
-  .table {
-    width: 100%;
-    text-align: left;
-    color: $light-text-color;
-    border-collapse: collapse;
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid $basic-border-color;
+
+  .owner {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .avatar {
+    border-radius: 50%;
     overflow: hidden;
-    border-radius: 10px 10px 0px 0px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    object-fit: cover;
+    margin: 0;
   }
+}
 
-  th,
-  td {
-    padding: 16px;
-    border-bottom: 1px solid $basic-border-color;
+thead {
+  background-color: $darken-background-color;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: $neutral-text-color;
+}
 
-    .owner {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .avatar {
-      border-radius: 50%;
-      overflow: hidden;
-      width: 40px;
-      height: 40px;
-      display: block;
-      object-fit: cover;
-      margin: 0;
-    }
-  }
-
-  thead {
-    background-color: $darken-background-color;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: $neutral-text-color;
-  }
-
-  th {
-    cursor: pointer;
-  }
+th {
+  cursor: pointer;
 }
 
 tbody tr {

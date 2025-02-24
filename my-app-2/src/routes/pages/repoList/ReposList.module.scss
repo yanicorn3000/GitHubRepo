@@ -1,0 +1,16 @@
+@use "sass:color";
+@use "../../../utils.scss" as *;
+
+.tableContainer {
+  position: relative;
+  overflow: auto;
+  box-shadow: $basic-shadow;
+  border-radius: 6px;
+  background-color: $basic-background;
+  color: $light-text-color;
+  width: 100%;
+
+  @include respond-to(md) {
+    width: 80%;
+  }
+}
